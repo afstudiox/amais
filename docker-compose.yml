@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  
+  jobs:
+    build: .
+    image: "node:16"
+    user: node
+    container_name: jobs
+    working_dir: /app
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+    command: "npm install && npm start"
+    ports:
+      - 3000:3000
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: pass123456
+      MYSQL_HOST: db
+      MYSQL_DATABASE: jobs
+    depends_on:
+      - db
+  
+  db:
+    container_name: jobs_db
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: pass123456
