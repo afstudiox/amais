@@ -5,6 +5,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', userRoute)
+app.use('/user', userRoute)
 
 module.exports = app;
