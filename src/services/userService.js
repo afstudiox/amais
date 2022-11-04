@@ -1,9 +1,12 @@
 const models = require('../database/models');
+const jwtService = require('../middlewares/jwt.service');
 
 const userService = {
-  createUser: async (data) => {
-    const user = await models.User.create(data);
-    return user;
+  create: async (data) => {
+    const newUser = await models.User.create(data);
+    const { email } = newUser.dataValues;
+    const token = jwtService.createToken(email);
+    return token;
   },
 
   getAll: async () => {
