@@ -9,6 +9,11 @@ const userService = {
   getAll: async () => {
     const users = await models.User.findAll();
     return users;
+  },
+
+  getOne: async (id) => {
+    const user = await models.User.findOne({ where: { id } });
+    return user;
   }
 }
 
