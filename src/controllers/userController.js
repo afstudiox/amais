@@ -16,6 +16,13 @@ const userController = {
     const { id } = req.params;
     const user = await userService.getOne(id);
     res.status(200).json(user);
+  }, 
+
+  change: async (req, res) => {
+    const { id } = req.params;
+    const { body } = req;
+    const user = await userService.change(id, body);
+    res.status(200).json(user);
   }
 }
 
