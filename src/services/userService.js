@@ -1,8 +1,8 @@
-const { UserModel } = require('../database/models/user');
+const models = require('../database/models');
 
 const userService = {
   createUser: async (data) => {
-    const user = await UserModel.create(data);
+    const user = await models.User.create(data);
     return user;
   }
 }

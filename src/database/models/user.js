@@ -45,7 +45,7 @@ const attributes = {
   },
 };
 
-const UserModel = (sequelize) => {
+const User = (sequelize) => {
   const User = sequelize.define(
     'User', 
     attributes, 
@@ -56,4 +56,4 @@ const UserModel = (sequelize) => {
   return User;
 }
 
-module.exports = UserModel;
+module.exports = User;
