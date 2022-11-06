@@ -1,7 +1,7 @@
 {
-  "name": "amais",
+  "name": "jobs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Back-End do projeto Jobs",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
