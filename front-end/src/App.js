@@ -1,13 +1,12 @@
-// import Login from "./Components/Login";
 import React from 'react';
-import Register from "./Components/Register";
+import Routers from './components/Routers';
+import MyProvider from './context/MyProvider';
 
 function App() {
   return (
-  <>
-    {/* <Login /> */}
-    <Register />
-  </>
+  <MyProvider>
+    <Routers />
+  </MyProvider>
   );
 };
 
