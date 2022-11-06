@@ -33,9 +33,11 @@ export default function Login(props) {
             <Button outline size="lg">
               Entrar
             </Button>
-            <Button outline size="lg">
-              Cadastrar
-            </Button>
+
+              <Button outline size="lg">
+                Cadastrar
+              </Button>
+
           </Container>
         </Form>
       </Container>
