@@ -1,7 +1,18 @@
-import React from 'react'
-import { Button, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import myContext from '../context/MyContext';
 
 export default function Login(props) {
+  const {login, setLogin, handleLogin } = useContext(myContext)
+
+  const navigate = useNavigate();
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setLogin({ ...login, [name]: value });
+  };
+
   return (
     <Container className='vh-100 vw-100 d-flex align-items-center'>
       <Container className='bg-light border h-75 w-75'>
@@ -10,13 +21,15 @@ export default function Login(props) {
         </Row>
         <Form className='m-5'>
           <FormGroup className='m-5'>
-          <Label for="email" hidden>email</Label>
+          <Label for="text" hidden>login</Label>
           <Input
-            id="email"
-            name="email"
-            placeholder="Digite seu email"
-            type="email"
+            id="login"
+            name="login"
+            placeholder="Digite seu login"
+            type="text"
             className='p-3'
+            value={ login.login }
+            onChange={ handleChange }
           />
           </FormGroup>
           <FormGroup className='m-5'>
@@ -27,14 +40,22 @@ export default function Login(props) {
               placeholder="Digite sua senha"
               type="password"
               className='p-3'
+              value={ login.senha }
+              onChange={ handleChange }
             />
           </FormGroup>
           <Container className="d-grid gap-5 col-6 mx-auto my-5 py-5">
-            <Button outline size="lg">
+            <Button 
+              outline 
+              size="lg"
+              onClick={ handleLogin }>
               Entrar
             </Button>
 
-              <Button outline size="lg">
+              <Button
+                outline 
+                size="lg"
+                onClick={ () => navigate('/register') }>
                 Cadastrar
               </Button>
 

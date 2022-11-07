@@ -1,10 +1,10 @@
 const express = require('express');
-const userRoute = require('./routes/userRoute');
+const routes = require('./routes/jobsRoute');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/user', userRoute)
+app.use('/', routes)
 
 module.exports = app;

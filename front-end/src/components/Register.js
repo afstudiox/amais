@@ -90,7 +90,7 @@ export default function Register(props) {
             <FormGroup>
               <Label for='nascimento'>Data de Nascimento</Label>
               <Input 
-                type='text' 
+                type='date' 
                 name='nascimento' 
                 id='nascimento' 
                 placeholder='Digite no formato ( Dia/Mês/Ano )'
@@ -169,11 +169,11 @@ export default function Register(props) {
 
           <Row>
             <FormGroup>
-              <Label for='expProfissional'>Experiências Profissionais</Label>
+              <Label for='experienciaProfissional'>Experiências Profissionais</Label>
               <Input 
                 type='text' 
-                name='expProfissional' 
-                id='expProfissional' 
+                name='experienciaProfissional' 
+                id='experienciaProfissional' 
                 placeholder='Digite suas experiências profissionais separadas por virgulas'
                 value={ register.experienciaProfissional}
                 onChange= { handleChange }  />
