@@ -1,5 +1,7 @@
 const { User } = require('../database/models');
+const md5 = require('md5');
 const { StatusCodes } = require('http-status-codes');
+const jwtService = require('../middlewares/jwt.service'); //
 
 const jobsService = {
   login: async (login, senha) => {
@@ -20,10 +22,12 @@ const jobsService = {
     return true;
   },
   
-  create: async (data) => {
-    const user = await User.create(data);
-    const { login } = user.dataValues;
-    return login; 
+  create: async ({ senha, ...data }) => {
+    const senhaHash = md5(senha);
+    const user = await User.create({...data, senha: senhaHash});
+    const { login, senha: except, ...userSemSenha } = user.dataValues;
+    const token = jwtService.createToken(login);
+    return {token, user: userSemSenha};
   },
   
   read: async () => {

@@ -1,18 +1,18 @@
 const jobsService = require('../services/jobsService');
+const { StatusCodes } = require('http-status-codes');
 
 const jobsController = {
   login: async (req, res) => {
     const { login, senha } = req.body;
     const user = await jobsService.login(login, senha);
-    console.log(user);
     res.status(200).json(user);
   },
   
-
   create: async (req, res) => {
     const { body } = req;
+    await jobsService.userExists(body.login);
     const newUser = await jobsService.create(body);
-    res.status(201).json(newUser);
+    res.status(StatusCodes.CREATED).json(newUser);
   },
 
   read: async (req, res) => {
