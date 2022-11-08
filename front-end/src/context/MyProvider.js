@@ -21,8 +21,11 @@ export default function MyProvider(props) {
   //realiza o login
   const handleLogin = async () => {
     const data = await requestPost("/login", login);
-    console.log(data);
-    navigate('/report');
+    console.log(data.login);
+    console.log(login.login);
+    if (data.login === login.login) {
+      navigate('/report');
+    }
   };
 
   //carrega os currículos
