@@ -19,6 +19,7 @@
     "http-status-codes": "^2.2.0",
     "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.3",
     "sequelize-cli": "^6.5.2"
