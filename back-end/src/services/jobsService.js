@@ -1,4 +1,5 @@
 const { User } = require('../database/models');
+const { StatusCodes } = require('http-status-codes');
 
 const jobsService = {
   login: async (login, senha) => {
@@ -7,6 +8,16 @@ const jobsService = {
       return { message: 'Credenciais Inválidas' };
     }
     return user;
+  },
+
+  userExists: async (login) => {
+    const checkUser = await User.findOne({ where: { login } });
+    if (checkUser) {
+      const error = new Error('Usuário já existe');
+      error.code = StatusCodes.CONFLICT;
+      throw error;
+    };
+    return true;
   },
   
   create: async (data) => {
