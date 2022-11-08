@@ -14,7 +14,7 @@ const jobsService = {
     }
     const { login, id } = user.dataValues;
     const token = jwtService.createToken(id);
-    return { id, token };
+    return { id, login, token };
   },
 
   validateToken: async (token) => {
