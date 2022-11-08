@@ -15,21 +15,21 @@ const jobsController = {
     res.status(201).json(newUser);
   },
 
-  getAll: async (req, res) => {
-    const users = await jobsService.getAll();
+  read: async (req, res) => {
+    const users = await jobsService.read();
     res.status(200).json(users);
   },
 
-  getOne: async (req, res) => {
+  readOne: async (req, res) => {
     const { id } = req.params;
-    const user = await jobsService.getOne(id);
+    const user = await jobsService.readOne(id);
     res.status(200).json(user);
   }, 
 
-  change: async (req, res) => {
+  update: async (req, res) => {
     const { id } = req.params;
     const { body } = req;
-    const user = await jobsService.change(id, body);
+    const user = await jobsService.update(id, body);
     res.status(200).json(user);
   }
 }

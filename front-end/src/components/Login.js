@@ -33,10 +33,10 @@ export default function Login(props) {
           />
           </FormGroup>
           <FormGroup className='m-5'>
-            <Label for="password" hidden>password</Label>
+            <Label for="senha" hidden>senha</Label>
             <Input
-              id="password"
-              name="password"
+              id="senha"
+              name="senha"
               placeholder="Digite sua senha"
               type="password"
               className='p-3'

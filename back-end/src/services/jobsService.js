@@ -15,19 +15,19 @@ const jobsService = {
     return login; 
   },
   
-  getAll: async () => {
+  read: async () => {
     const users = await User.findAll();
     return users;
   },
 
-  getOne: async (id) => {
+  readOne: async (id) => {
     const user = await User.findOne({ where: { id } });
     return user;
   },
 
-  change: async (id, body) => {
+  update: async (id, body) => {
     await User.update(body , { where: { id } });
-    const user = await jobsService.getOne(id); 
+    const user = await jobsService.readOne(id); 
     return user;
   }
   

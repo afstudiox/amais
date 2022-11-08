@@ -6,8 +6,8 @@ const routes = Router();
 routes.post('/register', jobsController.create);
 routes.post('/login', jobsController.login);
 
-routes.get('/resumes', jobsController.getAll);
-routes.put('/:id', jobsController.change);
-routes.get('/:id', jobsController.getOne);
+routes.get('/resumes', jobsController.read);
+routes.put('/:id', jobsController.update);
+routes.get('/:id', jobsController.readOne);
 
 module.exports = routes;
