@@ -9,8 +9,14 @@ const jwtService = {
   },
 
   verifyToken: (token) => {
-    const decoded = jwt.verify(token, secret);
-    return decoded;
+    try {
+      const decode = jwt.verify(token, secret);
+      return decode;
+    } catch (e) {
+      const error = new Error('Token inválido');
+      error.code = StatusCodes.UNAUTHORIZED;
+      throw error;
+    }
   }
 };
 module.exports = jwtService;

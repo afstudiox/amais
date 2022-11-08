@@ -4,12 +4,27 @@ const { StatusCodes } = require('http-status-codes');
 const jwtService = require('../middlewares/jwt.service'); //
 
 const jobsService = {
-  login: async (login, senha) => {
-    const user = await User.findOne({ where: { login } });
-    if (!user || user.senha !== senha) {
-      return { message: 'Credenciais Inválidas' };
+  login: async (body) => {
+    const senhaHash = md5(body.senha);
+    const user = await User.findOne({ where: { login: body.login } });
+    if (!user || user.senha !== senhaHash) {
+      const error = new Error('Login ou senha inválidos');
+      error.code = StatusCodes.UNAUTHORIZED;
+      throw error;
     }
-    return user;
+    const { login, id } = user.dataValues;
+    const token = jwtService.createToken(id);
+    return { id, token };
+  },
+
+  validateToken: async (token) => {
+    if(!token) {
+      const error = new Error('Token não encontrado');
+      error.code = StatusCodes.NOT_FOUND;
+      throw error;
+    }
+    const data = jwtService.verifyToken(token);
+    return data;
   },
 
   userExists: async (login) => {
@@ -25,8 +40,8 @@ const jobsService = {
   create: async ({ senha, ...data }) => {
     const senhaHash = md5(senha);
     const user = await User.create({...data, senha: senhaHash});
-    const { login, senha: except, ...userSemSenha } = user.dataValues;
-    const token = jwtService.createToken(login);
+    const { id, senha: except, ...userSemSenha } = user.dataValues;
+    const token = jwtService.createToken(id);
     return {token, user: userSemSenha};
   },
   

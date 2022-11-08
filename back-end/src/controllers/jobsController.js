@@ -3,9 +3,10 @@ const { StatusCodes } = require('http-status-codes');
 
 const jobsController = {
   login: async (req, res) => {
-    const { login, senha } = req.body;
-    const user = await jobsService.login(login, senha);
-    res.status(200).json(user);
+    const { body } = req;
+    const user = await jobsService.login(body);
+    await jobsService.validateToken(user.token);
+    res.status(StatusCodes.OK).json(user);
   },
   
   create: async (req, res) => {
