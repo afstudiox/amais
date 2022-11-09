@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Projeto Jobs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre
+Desafio técnico de uma aplicação Fullstack para cadastro de currículos.<br>
 
-## Available Scripts
 
-In the project directory, you can run:
+## Especificações
 
-### `npm start`
+- Desenvolver uma página de login para usuário;
+- Desenvolver uma pagina de cadastro de currículo do usuário;
+- Página de relatório de currículos calculando a média da pretensão salarial dos currículos cadastrados.
+- Personalizar o destaque dos currículos de acordo com a média de pretensão salarial. 
+- Usuário pode editar seu currículo desde que esteja logado.
+- Tratar os campos de formato de data na inserção/alteração. Entrada (DD/MM/AAAA) Saída (AAAA/MM/DD)
+- Mostrar mensagens de sucesso após a gravação e alteração do currículo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Desafios Opcionais
+- Verificar se o login já existe na base de dados antes da inserção e alteração.
+- Testar o CPF no frontend através de javascript.
+- Verificar se os campos Nome, Email, Login, CPF foram digitados antes de enviar o form
+por Javascript
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Stacks utilizadas
+- HTML
+- CSS
+- Javascript
+- React
+- Bootstrap
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como testar localmente:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone o repositório  `git@github.com:afstudiox/amais.git`
+2. Acessar o diretório back-end `cd back-end`  
+3. Executar o o comando `npm install` para instalar as dependências back-end
+4. Ativar seu docker local e executar o comando `docker compose up -d` para montar a aplicação back-end
+5. Acessar a pasta front-end `cd front-end` 
+6. Executar o comando `npm install` para instalar as dependências front-end
+7. Executar o comando `npm start` para iniciar o servidor 
+8. Acesse a rota `http://localhost:3000` no seu navegador para testar a aplicação. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+##  Fontes de consultas:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ * [Javascript.com](http://javascript.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ * [W3Schools](https://www.w3schools.com/js/default.asp)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ * [MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ - [StackOverflow](https://pt.stackoverflow.com/questions/tagged/javascript)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ©️ Direitos Autorais
+Este projeto foi desenvolvido para fins de aprendizado por [Andre Felipe dos Santos](https://www.linkedin.com/in/afelipes/). 
+É permitido baixar ou clonar o repositório para fins de estudo, porém não é permitida a publicação de cópias totais ou parciais do mesmo. 
+Esta isenção de responsabilidade não abrange bibliotecas e dependências, que estão sujeitas às suas respectivas licenças.
