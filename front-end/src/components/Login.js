@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import myContext from '../context/MyContext';
 
 export default function Login(props) {
-  const {login, setLogin, handleLogin, credentialError, flagError } = useContext(myContext)
+  const {login, setLogin, handleLogin, credentialError, flagError, setFlagError } = useContext(myContext)
 
   const navigate = useNavigate();
 
@@ -12,6 +12,11 @@ export default function Login(props) {
     const { name, value } = target;
     setLogin({ ...login, [name]: value });
   };
+
+  useEffect(() => {
+    setFlagError(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container className='vh-100 vw-100 d-flex align-items-center'>

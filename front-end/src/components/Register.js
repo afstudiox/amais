@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import myContext from '../context/MyContext';
 
 export default function Register(props, args) {
-  const { register, setRegister, handleRegister, credentialError, flagError, validateRegister } = useContext(myContext);
+  const { register, setRegister, handleRegister, credentialError, flagError, validateRegister, setFlagError } = useContext(myContext);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setRegister({ ...register, [name]: value });
   };
+
+  useEffect(() => {
+    setFlagError(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container className='vh-100 vw-100'>
@@ -83,7 +88,8 @@ export default function Register(props, args) {
                 id='cpf' 
                 placeholder='Somente os números'
                 value={ register.cpf}
-                onChange= { handleChange }  />
+                onChange= { handleChange }  
+                />
             </FormGroup>
             </Col>
             <Col md={6}>
