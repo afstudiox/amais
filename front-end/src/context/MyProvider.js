@@ -16,6 +16,9 @@ export default function MyProvider(props) {
   const [credentialError, setCredentialError] = useState(false);
   const [flagError, setFlagError] = useState('');
   const [editmode, setEditmode] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const toggle = async () => await setModal(!modal);
 
   // realizada o cadastro de currículo
   const handleRegister = async () => {
@@ -24,11 +27,13 @@ export default function MyProvider(props) {
         const data = await requestPost("/register", register);
         localStorage.setItem('user', JSON.stringify(data));
         navigate('/report');
+        toggle();
       } else {
         const { id } = JSON.parse(localStorage.getItem('user'));
         const data = await requestPut(`/register/${id}`, register);
         localStorage.setItem('user', JSON.stringify(data));
         navigate('/report');
+        toggle();
       }
     } catch (e) {
       if (e.response.status === StatusCodes.CONFLICT) {
@@ -93,7 +98,10 @@ export default function MyProvider(props) {
     loadResume,
     editmode,
     setEditmode,
-    logout
+    logout, 
+    modal, 
+    setModal,
+    toggle,
   }
 
   return (

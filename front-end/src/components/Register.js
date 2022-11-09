@@ -2,15 +2,13 @@ import React, { useContext } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import myContext from '../context/MyContext';
 
-export default function Register(props) {
+export default function Register(props, args) {
   const { register, setRegister, handleRegister, credentialError, flagError } = useContext(myContext);
-  
+
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setRegister({ ...register, [name]: value });
   };
-
-  
 
   return (
     <Container className='vh-100 vw-100'>
@@ -96,7 +94,7 @@ export default function Register(props) {
                 name='nascimento' 
                 id='nascimento' 
                 placeholder='Digite no formato ( Dia/Mês/Ano )'
-                value={ register.nascimento}
+                value={ register.nascimento }
                 onChange= { handleChange } />
             </FormGroup>
             </Col>
