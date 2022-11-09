@@ -62,6 +62,11 @@ export default function MyProvider(props) {
     }
   };
 
+  const validateRegister = () => {
+    const { nome, email, login, senha, cpf } = register;
+    return ( nome && email && login && senha && cpf );
+  };
+
   //carrega os currículos
   const loadResumes = async () => {
     const data = await requestGet("/resumes");
@@ -106,6 +111,7 @@ export default function MyProvider(props) {
     setModal,
     toggle,
     origem,
+    validateRegister,
   }
 
   return (

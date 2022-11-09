@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reac
 import myContext from '../context/MyContext';
 
 export default function Register(props, args) {
-  const { register, setRegister, handleRegister, credentialError, flagError } = useContext(myContext);
+  const { register, setRegister, handleRegister, credentialError, flagError, validateRegister } = useContext(myContext);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -187,7 +187,9 @@ export default function Register(props, args) {
               outline 
               size='lg' 
               className="mt-5"
-              onClick={ handleRegister }>
+              onClick={ handleRegister }
+              disabled={ !validateRegister() }
+               >
               Cadastrar
             </Button>
             </Container>
