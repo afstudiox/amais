@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reac
 import myContext from '../context/MyContext';
 
 export default function Register(props, args) {
-  const { register, setRegister, handleRegister, credentialError, flagError, validateRegister, setFlagError } = useContext(myContext);
+  const { register, setRegister, handleRegister, credentialError, flagError, validateRegister, setFlagError, setCredentialError } = useContext(myContext);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -12,6 +12,7 @@ export default function Register(props, args) {
 
   useEffect(() => {
     setFlagError(false);
+    setCredentialError(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
