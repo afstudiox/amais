@@ -4,7 +4,7 @@ import { Button, Container, Form, FormGroup, Input, Label, Row } from 'reactstra
 import myContext from '../context/MyContext';
 
 export default function Login(props) {
-  const {login, setLogin, handleLogin } = useContext(myContext)
+  const {login, setLogin, handleLogin, credentialError, flagError } = useContext(myContext)
 
   const navigate = useNavigate();
 
@@ -44,6 +44,7 @@ export default function Login(props) {
               onChange={ handleChange }
             />
           </FormGroup>
+          { credentialError && <p className='text-danger'>{ flagError }</p> }
           <Container className="d-grid gap-5 col-6 mx-auto my-5 py-5">
             <Button 
               outline 

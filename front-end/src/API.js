@@ -12,6 +12,15 @@ export const requestPost = async (endpoint, body) => {
 
 export const requestGet = async (endpoint) => {
   const { data } = await api.get(endpoint);
-  console.log(data);
+  return data;
+}
+
+export const requestGetOne = async (endpoint, id) => {
+  const { data } = await api.get(`${endpoint}/${id}`);
+  return data;
+}
+
+export const requestPut = async (endpoint, body) => {
+  const { data } = await api.put(endpoint, body);
   return data;
 }

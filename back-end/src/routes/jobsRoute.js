@@ -7,7 +7,7 @@ routes.post('/register', jobsController.create);
 routes.post('/login', jobsController.login);
 
 routes.get('/resumes', jobsController.read);
-routes.put('/:id', jobsController.update);
-routes.get('/:id', jobsController.readOne);
+routes.put('/register/:id', jobsController.update);
+routes.get('/resumes/:id', jobsController.readOne);
 
 module.exports = routes;

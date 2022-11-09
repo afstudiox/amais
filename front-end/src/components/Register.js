@@ -3,12 +3,14 @@ import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reac
 import myContext from '../context/MyContext';
 
 export default function Register(props) {
-  const { register, setRegister, handleRegister } = useContext(myContext);
+  const { register, setRegister, handleRegister, credentialError, flagError } = useContext(myContext);
   
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setRegister({ ...register, [name]: value });
   };
+
+  
 
   return (
     <Container className='vh-100 vw-100'>
@@ -22,7 +24,7 @@ export default function Register(props) {
           <Row>
             <Col md={6}>
             <FormGroup>
-              <Label for='name'>Nome</Label>
+              <Label for='nome'>Nome</Label>
               <Input 
                 type='text' 
                 id='nome' 
@@ -179,6 +181,8 @@ export default function Register(props) {
                 onChange= { handleChange }  />
             </FormGroup>
           </Row>
+
+          { credentialError && <p className='text-danger'> { flagError }</p> }
 
           <Container className="d-flex justify-content-center">
             <Button 

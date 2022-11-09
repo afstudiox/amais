@@ -40,9 +40,9 @@ const jobsService = {
   create: async ({ senha, ...data }) => {
     const senhaHash = md5(senha);
     const user = await User.create({...data, senha: senhaHash});
-    const { id, senha: except, ...userSemSenha } = user.dataValues;
+    const { id, nome, senha: except, ...userSemSenha } = user.dataValues;
     const token = jwtService.createToken(id);
-    return {token, user: userSemSenha};
+    return {token, id, ...userSemSenha};
   },
   
   read: async () => {
@@ -52,11 +52,14 @@ const jobsService = {
 
   readOne: async (id) => {
     const user = await User.findOne({ where: { id } });
-    return user;
+    const { senha, ...userSemSenha } = user.dataValues;
+    return userSemSenha;
   },
 
   update: async (id, body) => {
-    await User.update(body , { where: { id } });
+    const senhaHash = md5(body.senha);
+    const bodyWithSenhaHash = {...body, senha: senhaHash};
+    await User.update(bodyWithSenhaHash , { where: { id } });
     const user = await jobsService.readOne(id); 
     return user;
   }

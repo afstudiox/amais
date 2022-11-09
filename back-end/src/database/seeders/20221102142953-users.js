@@ -9,7 +9,7 @@ module.exports = {
       nome: 'João da Silva',
       email: 'joaosilva@gmail.com',
       login: 'joaosilva',
-      senha: '123456',
+      senha: 'e10adc3949ba59abbe56e057f20f883e', // 123456
       cpf: '12345678901',
       nascimento: '1990-01-01',
       sexo: 'Masculino',
@@ -26,7 +26,7 @@ module.exports = {
       nome: 'Maria da Silva',
       email: 'mariasilva@gmail.com',
       login: 'mariasilva',
-      senha: '123456',
+      senha: 'e10adc3949ba59abbe56e057f20f883e', // 123456
       cpf: '12345678902',
       nascimento: '1991-01-01',
       sexo: 'Feminino',
@@ -43,7 +43,7 @@ module.exports = {
       nome: 'Pedro da Silva',
       email: 'pedrosilva@gmail.com',
       login: 'pedrosilva',
-      senha: '123456',
+      senha: 'e10adc3949ba59abbe56e057f20f883e', // 123456
       cpf: '12345678903',
       nascimento: '1993-01-01',
       sexo: 'Masculino',
