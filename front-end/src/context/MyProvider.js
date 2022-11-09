@@ -17,6 +17,7 @@ export default function MyProvider(props) {
   const [flagError, setFlagError] = useState('');
   const [editmode, setEditmode] = useState(false);
   const [modal, setModal] = useState(false);
+  const [origem, setOrigem] = useState('');
 
   const toggle = async () => await setModal(!modal);
 
@@ -27,12 +28,14 @@ export default function MyProvider(props) {
         const data = await requestPost("/register", register);
         localStorage.setItem('user', JSON.stringify(data));
         navigate('/report');
+        setOrigem('create');
         toggle();
       } else {
         const { id } = JSON.parse(localStorage.getItem('user'));
         const data = await requestPut(`/register/${id}`, register);
         localStorage.setItem('user', JSON.stringify(data));
         navigate('/report');
+        setOrigem('update');
         toggle();
       }
     } catch (e) {
@@ -102,6 +105,7 @@ export default function MyProvider(props) {
     modal, 
     setModal,
     toggle,
+    origem,
   }
 
   return (
